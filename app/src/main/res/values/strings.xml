@@ -53,4 +53,12 @@
     <string name="task_name">Task Name</string>
     <string name="location">Location</string>
     <string name="create_a_task">Create a Task</string>
+    <string name="google">GOOGLE</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="back">Back</string>
+    <string name="select_media">Select Media</string>
+    <string name="take_photo">Take Photo...</string>
+    <string name="choose_from_library">Choose from Library...</string>
+    <string name="done">Done</string>
+    <string name="messages_to">Messages to</string>
 </resources>
