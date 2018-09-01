@@ -25,18 +25,22 @@
         android:padding="10dp"
         android:text="@string/app_description"/>
 
-    <Button
-        android:id="@+id/btn_signUp"
+    <EditText
+        android:id="@+id/editText_mobileNo"
         android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="@string/sign_up"
-        android:textColor="@color/colorWhite"
-        android:layout_marginBottom="110dp"
-        android:background="@drawable/rounded_button"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/rounded_edittext"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="50dp"
+        android:hint="@string/mobile_number"
+        android:inputType="number"
+        android:maxLength="10"
+        android:textSize="14sp" />
 
+    <!--android:drawableLeft="@drawable/my_icon"-->
     <Button
         android:id="@+id/btn_logIn"
         android:layout_width="240dp"
@@ -46,6 +50,7 @@
         android:gravity="center"
         android:text="@string/log_in"
         android:textColor="@color/colorWhite"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_button"/>
+
 </RelativeLayout>

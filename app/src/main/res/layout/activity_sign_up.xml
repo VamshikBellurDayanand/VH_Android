@@ -26,25 +26,38 @@
         android:text="@string/app_description"/>
 
     <Button
-        android:id="@+id/btn_signUp"
+        android:id="@+id/btn_signUpWithFB"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:text="@string/sign_up"
+        android:text="@string/sign_up_with_facebook"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="170dp"
+        android:background="@drawable/rounded_button"/>
+        <!--android:drawableLeft="@drawable/my_btn_icon"-->
+
+    <Button
+        android:id="@+id/btn_signUpWithGoogle"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="@string/sign_up_with_google"
         android:textColor="@color/colorWhite"
         android:layout_marginBottom="110dp"
         android:background="@drawable/rounded_button"/>
 
     <Button
-        android:id="@+id/btn_logIn"
+        android:id="@+id/btn_signUpWithEmail"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:text="@string/log_in"
+        android:text="@string/sign_up_with_my_email"
         android:textColor="@color/colorWhite"
         android:layout_marginBottom="50dp"
         android:background="@drawable/rounded_button"/>

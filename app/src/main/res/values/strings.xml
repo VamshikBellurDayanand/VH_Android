@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">Vytality Health</string>
-    <string name="app_description">Vytality Health is a co-caring social platform for reliable, authentic support of people\'s health and well being.</string>
+    <string name="app_description">Vytality Health is a co-caring social \n platform for reliable, authentic support \n of people\'s health and well being.</string>
     <string name="sign_up">SIGN UP</string>
     <string name="log_in">LOG IN</string>
     <string name="or_log_in_with">OR LOG IN WITH</string>
     <string name="email">EMAIL</string>
+    <string name="email_cml">Email</string>
     <string name="mobile_no">MOBILE #</string>
+    <string name="sign_up_with_facebook">SIGN UP WITH FACEBOOK</string>
+    <string name="sign_up_with_google">SIGN UP WITH GOOGLE</string>
     <string name="sign_up_with_my_email">SIGN UP WITH MY EMAIL</string>
+    <string name="log_in_with_facebook">LOG IN WITH FACEBOOK</string>
+    <string name="log_in_with_google">LOG IN WITH GOOGLE</string>
     <string name="sign_up_with_fb_dialog_header">"Vytality" Wants to use "facebook.com" to Sign In</string>
     <string name="sign_up_with_google_dialog_header">"Vytality" Wants to use "google.com" to Sign In</string>
     <string name="sign_up_dialog_body">This allows the app and website to share information about you.</string>
@@ -15,7 +20,7 @@
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="create_account">CREATE ACCOUNT</string>
-    <string name="enable_touch_id">ENABLE Touch ID</string>
+    <string name="enable_touch_id">Enable Touch ID</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="touch_id_for_1password">Touch ID for "1Password"</string>

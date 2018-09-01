@@ -1,0 +1,83 @@
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/textView_appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:fontFamily="cursive"
+        android:padding="10dp"
+        android:text="@string/app_name"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView_appDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_below="@+id/textView_appName"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/app_description"/>
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="250dp"
+        android:background="@drawable/rounded_edittext"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="50dp"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="190dp"
+        android:background="@drawable/rounded_edittext"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="50dp"
+        android:hint="@string/email_cml"
+        android:inputType="textEmailAddress"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/rounded_edittext"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="50dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textSize="14sp" />
+
+    <!--android:drawableLeft="@drawable/my_icon"-->
+    <Button
+        android:id="@+id/btn_createAcnt"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="@string/create_account"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/rounded_button"/>
+
+</RelativeLayout>

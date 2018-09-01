@@ -9,12 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity">
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:parentActivityName=".RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginWithEmailActivity"
+            android:parentActivityName=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:fitsSystemWindows="true"/>
+        <activity
+            android:name=".LoginWithMobileNumberActivity"
+            android:parentActivityName=".LoginActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".SignUpWithEmailActivity"
+            android:parentActivityName=".SignUpActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
