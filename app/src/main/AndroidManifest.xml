@@ -28,18 +28,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".LoginWithEmailActivity"
+            android:fitsSystemWindows="true"
             android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            android:fitsSystemWindows="true"/>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".LoginWithMobileNumberActivity"
             android:parentActivityName=".LoginActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".SignUpWithEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUpWithEmailActivity"
             android:parentActivityName=".SignUpActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home2"></activity>
     </application>
 
 </manifest>

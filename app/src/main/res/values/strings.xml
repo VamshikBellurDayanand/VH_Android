@@ -66,4 +66,6 @@
     <string name="choose_from_library">Choose from Library...</string>
     <string name="done">Done</string>
     <string name="messages_to">Messages to</string>
+    <string name="title_activity_home2">HomeActivity2</string>
+    <string name="title_dashboard">Dashboard</string>
 </resources>
