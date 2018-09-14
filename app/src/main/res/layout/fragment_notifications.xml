@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorWhite"
+    tools:context=".HomeActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/notifications"
+            app:titleTextColor="#000000"
+            android:layout_gravity="center_horizontal">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Notifications Fragment" />
+
+</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

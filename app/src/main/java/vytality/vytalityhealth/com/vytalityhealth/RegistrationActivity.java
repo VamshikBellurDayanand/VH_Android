@@ -5,10 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.facebook.AccessToken;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends Activity {
 
     private static final String TAG = "RegistrationActivity";
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,8 @@ public class RegistrationActivity extends Activity {
 
         mSignUpButton = findViewById(R.id.btn_signUp);
         mLoginButton = findViewById(R.id.btn_logIn);
+
+        mAuth = FirebaseAuth.getInstance();
 
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,5 +46,20 @@ public class RegistrationActivity extends Activity {
                 startActivity(loginIntent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(account != null || accessToken != null && !accessToken.isExpired() || user != null) {
+            Toast.makeText(this, "Already Signed in", Toast.LENGTH_SHORT).show();
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            startActivity(homeIntent);
+        } else {
+            Toast.makeText(this, "Not yet signed in", Toast.LENGTH_SHORT).show();
+        }
     }
 }

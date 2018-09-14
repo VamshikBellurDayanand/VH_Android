@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/view2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:elevation="12dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="20dp"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:id="@+id/connectionsProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_launcher_background">
+
+            </ImageView>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/connectionsName"
+            android:layout_width="221dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="60dp"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/connectionsPlace"
+            android:layout_width="221dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/connectionsPhonePic"
+            android:layout_width="35dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="60dp"
+            android:src="@drawable/phone_icon" />
+
+        <ImageView
+            android:id="@+id/connectionsMsgPic"
+            android:layout_width="35dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/message_icon" />
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

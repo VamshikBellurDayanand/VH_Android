@@ -3,31 +3,46 @@ package vytality.vytalityhealth.com.vytalityhealth;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
+
+import static android.provider.ContactsContract.Intents.Insert.EMAIL;
 import static vytality.vytalityhealth.com.vytalityhealth.Util.*;
 import static vytality.vytalityhealth.com.vytalityhealth.Util.SignUpOptions.SIGN_UP_WITH_FACEBOOK;
 import static vytality.vytalityhealth.com.vytalityhealth.Util.SignUpOptions.SIGN_UP_WITH_GOOGLE;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG ="SignUpActivity";
-
+    private CallbackManager callbackManager;
     private Context mContext;
     private ActionBar actionBar;
 
@@ -54,6 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
         mSignUpWithGoogleButton = findViewById(R.id.btn_signUpWithGoogle);
         mSignUpWithEmailButton = findViewById(R.id.btn_signUpWithEmail);
 
+        callbackManager = CallbackManager.Factory.create();
         mContext = SignUpActivity.this;
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -85,6 +101,42 @@ public class SignUpActivity extends AppCompatActivity {
                         getResources().getString(R.string.sign_up_dialog_body), SIGN_UP_WITH_GOOGLE);
             }
         });
+
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(getApplicationContext(), "Facebook Success", Toast.LENGTH_SHORT).show();
+                Intent homeIntent = new Intent(mContext, HomeActivity.class);
+                startActivity(homeIntent);
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(), "Facebook Cancelled", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Toast.makeText(getApplicationContext(), "Facebook Failed", Toast.LENGTH_SHORT).show();
+                Log.e("Login", "failed" + exception.getMessage());
+                exception.printStackTrace();
+            }
+        });
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "vytality.vytalityhealth.com.vytalityhealth",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
     }
 
     public void setActionBarTitle() {
@@ -106,6 +158,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             switch (signUpOption) {
                                 case SIGN_UP_WITH_FACEBOOK:
+                                    LoginManager.getInstance().logInWithReadPermissions(SignUpActivity.this, Collections.singletonList(EMAIL));
                                     break;
                                 case SIGN_UP_WITH_GOOGLE:
                                     Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -138,6 +191,8 @@ public class SignUpActivity extends AppCompatActivity {
         if (requestCode == SIGNUP_WITH_GOOGLE) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+        } else {
+            callbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -161,9 +216,8 @@ public class SignUpActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if(account != null) {
             Toast.makeText(this, "Already Signed in", Toast.LENGTH_SHORT).show();
-            //  Intent homeIntent = new Intent(this, Home_Activity.class);
-            // startActivity(homeIntent);
-            //update ui i.e. hide sign in button;
+              Intent homeIntent = new Intent(this, HomeActivity.class);
+              startActivity(homeIntent);
         } else {
             Toast.makeText(this, "Not yet signed in", Toast.LENGTH_SHORT).show();
         }

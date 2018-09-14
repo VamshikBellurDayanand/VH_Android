@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "855031514409",
+    "firebase_url": "https://vytality-58cb7.firebaseio.com",
+    "project_id": "vytality-58cb7",
+    "storage_bucket": "vytality-58cb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855031514409:android:f4660e7b43afe868",
+        "android_client_info": {
+          "package_name": "vytality.vytalityhealth.com.vytalityhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855031514409-rcpqvthft56ou5hcfdt821kjl8jbvcdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiSkh1_bOUyNIbmPJDh7hj6bAIl3kbBVE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
